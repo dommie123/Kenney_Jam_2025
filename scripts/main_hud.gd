@@ -1,5 +1,6 @@
 extends Control
 
+signal minigameBegun;
 signal workerHired;
 signal buildingUpgraded;
 signal gamePaused;
@@ -12,3 +13,11 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
+
+
+func _on_pause_button_pressed() -> void:
+	gamePaused.emit();
+
+
+func _on_minigame_button_pressed() -> void:
+	minigameBegun.emit();
