@@ -1,0 +1,53 @@
+[gd_scene load_steps=5 format=3 uid="uid://7q7wamc8w0do"]
+
+[ext_resource type="Texture2D" uid="uid://lj3jhms5ejbk" path="res://assets/kenney_ui-pack/Vector/Blue/button_square_gloss.svg" id="1_gbtks"]
+[ext_resource type="Script" path="res://scripts/main_hud.gd" id="1_kcbao"]
+[ext_resource type="Texture2D" uid="uid://d10r3ap5isjee" path="res://assets/kenney_ui-pack/Vector/Blue/check_square_grey_square.svg" id="2_3gbnv"]
+[ext_resource type="Texture2D" uid="uid://6gaud2mir71i" path="res://assets/kenney_ui-pack/Vector/Grey/button_square_gloss.svg" id="3_2xluc"]
+
+[node name="MainHUD" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_kcbao")
+
+[node name="MinigameButton" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -112.0
+offset_right = -40.0
+offset_bottom = 72.0
+grow_horizontal = 0
+scale = Vector2(1.5, 1.5)
+theme_type_variation = &"FlatButton"
+icon = ExtResource("1_gbtks")
+autowrap_mode = 3
+
+[node name="UpgradesButton" type="MenuButton" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -24.0
+offset_right = 16.0
+offset_bottom = 40.0
+grow_horizontal = 2
+scale = Vector2(1.32, 1.35746)
+icon = ExtResource("2_3gbnv")
+item_count = 2
+popup/item_0/text = "Hire Worker"
+popup/item_1/text = "Upgrade Building"
+popup/item_1/id = 1
+
+[node name="PauseButton" type="Button" parent="."]
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
+scale = Vector2(1.5, 1.5)
+icon = ExtResource("3_2xluc")
+flat = true
