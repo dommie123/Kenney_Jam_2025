@@ -49,7 +49,7 @@ func _process(delta: float) -> void:
 
 func upgrade_building(type: GlobalTypes.UpgradeType) -> void:
 	if type == GlobalTypes.UpgradeType.POWER and powerLevel < maxPwrLevel:
-		pwrConsumptionRate /= 1.5;
+		pwrConsumptionRate /= 1.25;
 		powerLevel += 1;
 	elif type == GlobalTypes.UpgradeType.COINS and coinLevel < maxCoinLevel:
 		initCoinGenRate += 2;

@@ -231,6 +231,7 @@ patch_margin_right = 10
 patch_margin_bottom = 10
 
 [node name="TextureRect" type="TextureRect" parent="ScrollContainer/VBoxContainer/UpgradePowerBtn"]
+layout_mode = 0
 offset_left = 13.9399
 offset_top = 12.2573
 offset_right = 53.9399
@@ -328,6 +329,7 @@ patch_margin_right = 10
 patch_margin_bottom = 10
 
 [node name="TextureRect" type="TextureRect" parent="ScrollContainer/VBoxContainer/UpgradeCoinsBtn"]
+layout_mode = 0
 offset_left = 23.2331
 offset_top = 22.6615
 offset_right = 87.2331
@@ -425,6 +427,7 @@ patch_margin_right = 10
 patch_margin_bottom = 10
 
 [node name="TextureRect" type="TextureRect" parent="ScrollContainer/VBoxContainer/AddFloorBtn"]
+layout_mode = 0
 offset_left = 21.6842
 offset_top = 22.2349
 offset_right = 61.6842

@@ -1,0 +1,30 @@
+[gd_scene load_steps=2 format=3 uid="uid://dmxbt488f1rwv"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_8qtn7"]
+animations = [{
+"frames": [],
+"loop": true,
+"name": &"down",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"left",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"right",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"up",
+"speed": 1.0
+}]
+
+[node name="Car" type="Node2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_8qtn7")
+animation = &"up"

@@ -44,6 +44,15 @@ func _on_upgrades_menu_try_purchase_upgrade(type: GlobalTypes.UpgradeType, cost:
 		# TODO inform user that they are financially challenged via popup
 		print("Oops! You don't have the money to afford that!");
 		play_buzzer_sound();
+	elif type == GlobalTypes.UpgradeType.POWER and $Building.powerLevel == $Building.maxPower:
+		print("You already have all the upgrades for this item!");
+		play_buzzer_sound();
+	elif type == GlobalTypes.UpgradeType.COINS and $Building.coinLevel == $Building.maxCoinLevel:
+		print("You already have all the upgrades for this item!");
+		play_buzzer_sound();
+	elif type == GlobalTypes.UpgradeType.FLOOR and $Building.numFloors == $Building.maxFloors:
+		print("You can't build any more floors!");
+		play_buzzer_sound();
 	else:
 		coins -= cost;
 		$Building.upgrade_building(type)

@@ -1,7 +1,14 @@
-[gd_scene load_steps=3 format=4 uid="uid://n3mt2atqsd5w"]
+[gd_scene load_steps=6 format=4 uid="uid://n3mt2atqsd5w"]
 
 [ext_resource type="TileSet" uid="uid://dp8o77sffr8gk" path="res://tilesets/city.tres" id="1_n741d"]
 [ext_resource type="PackedScene" uid="uid://dg2bg8sertdwb" path="res://scenes/building.tscn" id="2_d6gub"]
+[ext_resource type="Texture2D" uid="uid://bgs4cmgknn5ha" path="res://assets/kenney_ui-pack/Vector/Grey/button_round_gloss.svg" id="3_2oe3b"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_je3lc"]
+
+[sub_resource type="Curve" id="Curve_uy6gb"]
+_data = [Vector2(0, 0.010989), 0.0, 0.0, 0, 0, Vector2(0.247191, 0.098901), 0.0, 0.0, 0, 0, Vector2(0.792135, 0.098901), 0.0, 0.0, 0, 0, Vector2(0.994382, 0.032967), 0.0, 0.0, 0, 0]
+point_count = 4
 
 [node name="Environment" type="Node2D"]
 position = Vector2(192, 8)
@@ -21,3 +28,18 @@ tile_set = ExtResource("1_n741d")
 visible = false
 position = Vector2(208, 0)
 script = null
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+material = SubResource("CanvasItemMaterial_je3lc")
+position = Vector2(240, 186.667)
+scale = Vector2(5.40752, 6.49675)
+amount = 200
+lifetime = 5.0
+texture = ExtResource("3_2oe3b")
+emission_shape = 1
+emission_sphere_radius = 128.0
+spread = 166.82
+gravity = Vector2(0, 0)
+initial_velocity_max = 10.0
+scale_amount_curve = SubResource("Curve_uy6gb")
+color = Color(1, 1, 1, 0.572549)
