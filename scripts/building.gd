@@ -4,6 +4,10 @@ signal generateCoins;
 signal changedPowerTo;
 signal updateUI;
 
+@export var floorTilemaps: Array[Node2D];
+@export var pwrDownSound: AudioStream;
+@export var minigameSolvedSound: AudioStream;
+
 @export var maxPower: int;
 @export var maxPwrLevel: int;
 @export var initPwrOvercharge: int;
@@ -11,7 +15,6 @@ signal updateUI;
 @export var initCoinGenRate: float;
 @export var pwrConsumptionRate: float;
 @export var maxFloors: int;
-@export var floorTilemaps: Array[Node2D];
 
 var currentPower: float;
 var pwrOvercharge: int;
@@ -90,6 +93,10 @@ func _on_power_degrade_timer_timeout() -> void:
 	elif currentPower > 0:
 		currentPower -= 1;
 		changedPowerTo.emit(currentPower)
+		
+		if currentPower == 0:
+			$SFXPlayer.stream = pwrDownSound;
+			$SFXPlayer.play();
 
 
 func _on_coin_generate_timer_timeout() -> void:
@@ -99,4 +106,7 @@ func _on_coin_generate_timer_timeout() -> void:
 func _on_minigame_hud_solved_puzzle() -> void:
 	currentPower = maxPower;
 	pwrOvercharge = initPwrOvercharge;
-	changedPowerTo.emit(currentPower)
+	changedPowerTo.emit(currentPower);
+	
+	$SFXPlayer.stream = minigameSolvedSound;
+	$SFXPlayer.play();

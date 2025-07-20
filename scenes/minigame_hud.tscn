@@ -1,14 +1,53 @@
-[gd_scene load_steps=10 format=3 uid="uid://cu5rwkrt4nxm7"]
+[gd_scene load_steps=49 format=3 uid="uid://cu5rwkrt4nxm7"]
 
 [ext_resource type="Texture2D" uid="uid://cvth2qwah0rt5" path="res://assets/kenney_ui-pack/Vector/Blue/button_rectangle_border.svg" id="1_ftfwe"]
 [ext_resource type="Script" path="res://scripts/minigame.gd" id="2_ckgrs"]
 [ext_resource type="Texture2D" uid="uid://bt0o6pwxjaxya" path="res://assets/kenney_ui-pack/Vector/Yellow/check_square_grey_square.svg" id="3_plaxr"]
 [ext_resource type="Texture2D" uid="uid://ce2p6aw3vvika" path="res://assets/kenney_ui-pack/Vector/Yellow/check_square_grey.svg" id="4_ca1fv"]
 [ext_resource type="Texture2D" uid="uid://d0t8hqsl1tem0" path="res://assets/kenney_ui-pack/Vector/Green/check_square_grey_checkmark.svg" id="4_gahmj"]
+[ext_resource type="AudioStream" uid="uid://snysbgaqeced" path="res://audio/sfx/switch1.ogg" id="5_hxari"]
 [ext_resource type="Texture2D" uid="uid://3asi1ww7th3x" path="res://assets/kenney_ui-pack/Vector/Blue/button_rectangle_gloss.svg" id="5_j25n1"]
 [ext_resource type="Texture2D" uid="uid://bis1ux13hw4vp" path="res://assets/kenney_ui-pack/Vector/Red/button_square_flat.svg" id="5_o5hdl"]
+[ext_resource type="AudioStream" uid="uid://dtk10a7dpqjku" path="res://audio/sfx/switch2.ogg" id="6_3hja8"]
 [ext_resource type="Texture2D" uid="uid://o204qm3r2v3h" path="res://assets/kenney_ui-pack/Vector/Grey/icon_cross.svg" id="6_bsg03"]
+[ext_resource type="AudioStream" uid="uid://cbiueea4oloc0" path="res://audio/sfx/switch3.ogg" id="7_h3d4a"]
+[ext_resource type="AudioStream" uid="uid://cxbiu1cijifyn" path="res://audio/sfx/switch4.ogg" id="8_2q0cw"]
 [ext_resource type="FontFile" uid="uid://csjph1oblw7kn" path="res://assets/kenney_ui-pack/Font/Kenney Future Narrow.ttf" id="8_d6jjg"]
+[ext_resource type="AudioStream" uid="uid://ble23r7vx8pjc" path="res://audio/sfx/switch5.ogg" id="9_ki6o1"]
+[ext_resource type="AudioStream" uid="uid://b6la7e4he7n2p" path="res://audio/sfx/switch6.ogg" id="10_ne4ej"]
+[ext_resource type="AudioStream" uid="uid://ba4pr74hvo6lr" path="res://audio/sfx/switch7.ogg" id="11_olmp3"]
+[ext_resource type="AudioStream" uid="uid://dc1sqwq4d6ucn" path="res://audio/sfx/switch8.ogg" id="12_f4ngn"]
+[ext_resource type="AudioStream" uid="uid://c81vmrdlykbl4" path="res://audio/sfx/switch9.ogg" id="13_2ygm6"]
+[ext_resource type="AudioStream" uid="uid://bl3b1glji6qbi" path="res://audio/sfx/switch10.ogg" id="14_52caf"]
+[ext_resource type="AudioStream" uid="uid://bdx0tf4twm0x4" path="res://audio/sfx/switch11.ogg" id="15_m0je5"]
+[ext_resource type="AudioStream" uid="uid://bcou3ql3c2ci" path="res://audio/sfx/switch12.ogg" id="16_w6eji"]
+[ext_resource type="AudioStream" uid="uid://d043mxsk3xp1s" path="res://audio/sfx/switch13.ogg" id="17_u40ju"]
+[ext_resource type="AudioStream" uid="uid://boyl46k1wwgvu" path="res://audio/sfx/switch14.ogg" id="18_v3urw"]
+[ext_resource type="AudioStream" uid="uid://dxmtnx8brldif" path="res://audio/sfx/switch15.ogg" id="19_e6py5"]
+[ext_resource type="AudioStream" uid="uid://dhdumxynup0ur" path="res://audio/sfx/switch16.ogg" id="20_lc5th"]
+[ext_resource type="AudioStream" uid="uid://o15cmbowsje7" path="res://audio/sfx/switch17.ogg" id="21_q4ruq"]
+[ext_resource type="AudioStream" uid="uid://ca2gnb51rkyk0" path="res://audio/sfx/switch18.ogg" id="22_kwyn3"]
+[ext_resource type="AudioStream" uid="uid://tsdvcbev8qlw" path="res://audio/sfx/switch19.ogg" id="23_pntoh"]
+[ext_resource type="AudioStream" uid="uid://ce2b244q4hofo" path="res://audio/sfx/switch20.ogg" id="24_oqm1j"]
+[ext_resource type="AudioStream" uid="uid://bip7nvramguwj" path="res://audio/sfx/switch21.ogg" id="25_yklaa"]
+[ext_resource type="AudioStream" uid="uid://c1mrcpw6u0cf0" path="res://audio/sfx/switch22.ogg" id="26_b21di"]
+[ext_resource type="AudioStream" uid="uid://c8t0dbkwvu2u7" path="res://audio/sfx/switch23.ogg" id="27_518y8"]
+[ext_resource type="AudioStream" uid="uid://cql21fyhwrqlf" path="res://audio/sfx/switch24.ogg" id="28_4cmk3"]
+[ext_resource type="AudioStream" uid="uid://cixyoilgahxk1" path="res://audio/sfx/switch25.ogg" id="29_mvmpu"]
+[ext_resource type="AudioStream" uid="uid://celjubqvg88lr" path="res://audio/sfx/switch26.ogg" id="30_ueei7"]
+[ext_resource type="AudioStream" uid="uid://dualx0wy0478t" path="res://audio/sfx/switch27.ogg" id="31_it863"]
+[ext_resource type="AudioStream" uid="uid://crub4a48itlo1" path="res://audio/sfx/switch28.ogg" id="32_osdqu"]
+[ext_resource type="AudioStream" uid="uid://bnsrmk33mhg0i" path="res://audio/sfx/switch29.ogg" id="33_idh12"]
+[ext_resource type="AudioStream" uid="uid://bue5xs8i7rv1a" path="res://audio/sfx/switch30.ogg" id="34_74v0k"]
+[ext_resource type="AudioStream" uid="uid://dyfsy73bvk6rw" path="res://audio/sfx/switch31.ogg" id="35_t4kbx"]
+[ext_resource type="AudioStream" uid="uid://dgtmidmd8gjwu" path="res://audio/sfx/switch32.ogg" id="36_g66xk"]
+[ext_resource type="AudioStream" uid="uid://cv5phrn2s6g6d" path="res://audio/sfx/switch33.ogg" id="37_p2hy0"]
+[ext_resource type="AudioStream" uid="uid://c2dyxkbfdh734" path="res://audio/sfx/switch34.ogg" id="38_6b21y"]
+[ext_resource type="AudioStream" uid="uid://l3dsb7busjct" path="res://audio/sfx/switch35.ogg" id="39_1dmkl"]
+[ext_resource type="AudioStream" uid="uid://dsb517kws5ecl" path="res://audio/sfx/switch36.ogg" id="40_2ulf6"]
+[ext_resource type="AudioStream" uid="uid://coqko8cogdvpx" path="res://audio/sfx/switch37.ogg" id="41_e3xwc"]
+[ext_resource type="AudioStream" uid="uid://2r65nb2gct1w" path="res://audio/sfx/switch38.ogg" id="42_n6dsj"]
+[ext_resource type="AudioStream" uid="uid://djugd70huw8b6" path="res://audio/sfx/mouseclick1.ogg" id="43_j42bp"]
 
 [node name="MinigameHUD" type="NinePatchRect" node_paths=PackedStringArray("switches")]
 anchors_preset = 15
@@ -29,6 +68,8 @@ script = ExtResource("2_ckgrs")
 switches = [NodePath("CheckButton0_0"), NodePath("CheckButton0_1"), NodePath("CheckButton0_2"), NodePath("CheckButton1_0"), NodePath("CheckButton1_1"), NodePath("CheckButton1_2"), NodePath("CheckButton2_0"), NodePath("CheckButton2_1"), NodePath("CheckButton2_2")]
 checkedIcon = ExtResource("3_plaxr")
 successIcon = ExtResource("4_gahmj")
+switchSoundLibrary = Array[AudioStream]([ExtResource("5_hxari"), ExtResource("6_3hja8"), ExtResource("7_h3d4a"), ExtResource("8_2q0cw"), ExtResource("9_ki6o1"), ExtResource("10_ne4ej"), ExtResource("11_olmp3"), ExtResource("12_f4ngn"), ExtResource("13_2ygm6"), ExtResource("14_52caf"), ExtResource("15_m0je5"), ExtResource("16_w6eji"), ExtResource("17_u40ju"), ExtResource("18_v3urw"), ExtResource("19_e6py5"), ExtResource("20_lc5th"), ExtResource("21_q4ruq"), ExtResource("22_kwyn3"), ExtResource("23_pntoh"), ExtResource("24_oqm1j"), ExtResource("25_yklaa"), ExtResource("26_b21di"), ExtResource("27_518y8"), ExtResource("28_4cmk3"), ExtResource("29_mvmpu"), ExtResource("30_ueei7"), ExtResource("31_it863"), ExtResource("32_osdqu"), ExtResource("33_idh12"), ExtResource("34_74v0k"), ExtResource("35_t4kbx"), ExtResource("36_g66xk"), ExtResource("37_p2hy0"), ExtResource("38_6b21y"), ExtResource("39_1dmkl"), ExtResource("40_2ulf6"), ExtResource("41_e3xwc"), ExtResource("42_n6dsj")])
+mouseClickSound = ExtResource("43_j42bp")
 
 [node name="MinigameHeader" type="NinePatchRect" parent="."]
 layout_mode = 1
@@ -250,6 +291,8 @@ theme_override_icons/checked_disabled = ExtResource("4_gahmj")
 
 [node name="DisappearAfterSeconds" type="Timer" parent="."]
 one_shot = true
+
+[node name="SFXPlayer" type="AudioStreamPlayer2D" parent="."]
 
 [connection signal="pressed" from="MinigameHeader/CloseButton" to="." method="_on_close_button_pressed"]
 [connection signal="timeout" from="DisappearAfterSeconds" to="." method="_on_disappear_after_seconds_timeout"]

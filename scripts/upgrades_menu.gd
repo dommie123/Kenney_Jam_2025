@@ -43,6 +43,7 @@ func _process(delta: float) -> void:
 
 
 func _on_close_button_pressed() -> void:
+	$ClickSFXPlayer.play();
 	visible = false;
 
 
@@ -80,16 +81,20 @@ func update_upgrades_menu(numWorkers: int, maxWorkers: int, pwrLevel: int, coins
 
 
 func _on_hire_worker_btn_pressed() -> void:
+	$ClickSFXPlayer.play();
 	tryHireWorker.emit(workerCost);
 
 
 func _on_upgrade_power_btn_pressed() -> void:
+	$ClickSFXPlayer.play();
 	tryPurchaseUpgrade.emit(GlobalTypes.UpgradeType.POWER, currentPwrCost);
 
 
 func _on_upgrade_coins_btn_pressed() -> void:
+	$ClickSFXPlayer.play();
 	tryPurchaseUpgrade.emit(GlobalTypes.UpgradeType.COINS, currentCoinsCost);
 
 
 func _on_add_floor_btn_pressed() -> void:
+	$ClickSFXPlayer.play();
 	tryPurchaseUpgrade.emit(GlobalTypes.UpgradeType.FLOOR, currentFloorCost);

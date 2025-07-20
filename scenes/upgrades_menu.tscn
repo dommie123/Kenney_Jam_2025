@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://d0577awd0b2lp"]
+[gd_scene load_steps=14 format=3 uid="uid://d0577awd0b2lp"]
 
 [ext_resource type="Texture2D" uid="uid://cvth2qwah0rt5" path="res://assets/kenney_ui-pack/Vector/Blue/button_rectangle_border.svg" id="1_e3o5w"]
 [ext_resource type="Script" path="res://scripts/upgrades_menu.gd" id="2_fiut6"]
@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://k1oh1qtcbb3g" path="res://assets/kenney_game-icons/PNG/Black/2x/power.png" id="9_ua6r5"]
 [ext_resource type="Texture2D" uid="uid://bs6lmjj6yi7rc" path="res://assets/kenney_ui-pack/PNG/Yellow/Default/button_round_gradient.png" id="10_s4lu6"]
 [ext_resource type="Texture2D" uid="uid://bmgg2m6jh3lsq" path="res://assets/kenney_cursor-pack/PNG/Outline/Default/stairs_up.png" id="11_ghnjo"]
+[ext_resource type="AudioStream" uid="uid://b4aynph5frlm3" path="res://assets/kenney_ui-pack/Sounds/click-a.ogg" id="13_rb0ur"]
 
 [node name="UpgradesMenu" type="NinePatchRect"]
 anchors_preset = 8
@@ -500,6 +501,9 @@ theme_override_colors/font_color = Color(0, 0, 0, 0.717647)
 theme_override_fonts/font = ExtResource("5_kxrc5")
 theme_override_font_sizes/font_size = 14
 text = "Floors: <F>"
+
+[node name="ClickSFXPlayer" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("13_rb0ur")
 
 [connection signal="pressed" from="UpgradesHeader/CloseButton" to="." method="_on_close_button_pressed"]
 [connection signal="pressed" from="ScrollContainer/VBoxContainer/HireWorkerBtn" to="." method="_on_hire_worker_btn_pressed"]

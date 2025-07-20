@@ -5,6 +5,8 @@ signal solvedPuzzle; 	# Trigger this when the player solves the puzzle.
 @export var switches: Array[CheckButton];
 @export var checkedIcon: Texture2D;
 @export var successIcon: Texture2D;
+@export var switchSoundLibrary: Array[AudioStream];
+@export var mouseClickSound: AudioStream;
 
 var puzzleSolved: bool; # Has the puzzle been solved yet?
 var puzzleMatrix;
@@ -53,6 +55,9 @@ func _on_disappear_after_seconds_timeout() -> void:
 
 
 func _on_close_button_pressed() -> void:
+	$SFXPlayer.stream = mouseClickSound;
+	$SFXPlayer.play();
+	
 	visible = false;
 	for switch in switches:
 		switch.disabled = false;
@@ -60,6 +65,8 @@ func _on_close_button_pressed() -> void:
 	reset_puzzle();
 
 func _on_checked_button_pressed(button_name: String) -> void:
+	play_random_sound();
+	
 	var coords = button_name.substr(11, 13);
 	var xCoord = int(coords.split("_")[0]);
 	var yCoord = int(coords.split("_")[1]);
@@ -125,3 +132,9 @@ func reset_puzzle() -> void:
 		i += 1;
 	
 	refresh_buttons();
+
+
+func play_random_sound() -> void:
+	var index = randi_range(0, switchSoundLibrary.size() - 1);
+	$SFXPlayer.stream = switchSoundLibrary[index];
+	$SFXPlayer.play();

@@ -1,13 +1,17 @@
-[gd_scene load_steps=3 format=4 uid="uid://dg2bg8sertdwb"]
+[gd_scene load_steps=5 format=4 uid="uid://dg2bg8sertdwb"]
 
 [ext_resource type="Script" path="res://scripts/building.gd" id="1_gtgnv"]
 [ext_resource type="TileSet" uid="uid://dp8o77sffr8gk" path="res://tilesets/city.tres" id="2_c155v"]
+[ext_resource type="AudioStream" uid="uid://djg4aj5jnywui" path="res://audio/sfx/ding-36029.mp3" id="3_5u47n"]
+[ext_resource type="AudioStream" uid="uid://dcw7i3ehjqcu8" path="res://audio/sfx/power-off-96139.mp3" id="3_x5fmj"]
 
 [node name="Building" type="Node2D" node_paths=PackedStringArray("floorTilemaps")]
 script = ExtResource("1_gtgnv")
+floorTilemaps = [NodePath("Lv1_Tilemap"), NodePath("Lv2_Tilemap"), NodePath("Lv3_Tilemap"), NodePath("Lv4_Tilemap"), NodePath("Lv5_Tilemap")]
+pwrDownSound = ExtResource("3_x5fmj")
+minigameSolvedSound = ExtResource("3_5u47n")
 maxPower = 100
 maxFloors = 5
-floorTilemaps = [NodePath("Lv1_Tilemap"), NodePath("Lv2_Tilemap"), NodePath("Lv3_Tilemap"), NodePath("Lv4_Tilemap"), NodePath("Lv5_Tilemap")]
 
 [node name="Lv5_Tilemap" type="Node2D" parent="."]
 visible = false
@@ -66,6 +70,9 @@ tile_set = ExtResource("2_c155v")
 [node name="PowerDegradeTimer" type="Timer" parent="."]
 
 [node name="CoinGenerateTimer" type="Timer" parent="."]
+
+[node name="SFXPlayer" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_x5fmj")
 
 [connection signal="timeout" from="PowerDegradeTimer" to="." method="_on_power_degrade_timer_timeout"]
 [connection signal="timeout" from="CoinGenerateTimer" to="." method="_on_coin_generate_timer_timeout"]
