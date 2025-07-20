@@ -1,6 +1,7 @@
-[gd_scene load_steps=12 format=3 uid="uid://d0577awd0b2lp"]
+[gd_scene load_steps=13 format=3 uid="uid://d0577awd0b2lp"]
 
 [ext_resource type="Texture2D" uid="uid://cvth2qwah0rt5" path="res://assets/kenney_ui-pack/Vector/Blue/button_rectangle_border.svg" id="1_e3o5w"]
+[ext_resource type="Script" path="res://scripts/upgrades_menu.gd" id="2_fiut6"]
 [ext_resource type="Texture2D" uid="uid://3asi1ww7th3x" path="res://assets/kenney_ui-pack/Vector/Blue/button_rectangle_gloss.svg" id="2_xud25"]
 [ext_resource type="Texture2D" uid="uid://bis1ux13hw4vp" path="res://assets/kenney_ui-pack/Vector/Red/button_square_flat.svg" id="3_xx0bc"]
 [ext_resource type="Texture2D" uid="uid://o204qm3r2v3h" path="res://assets/kenney_ui-pack/Vector/Grey/icon_cross.svg" id="4_144iw"]
@@ -30,6 +31,7 @@ patch_margin_left = 10
 patch_margin_top = 10
 patch_margin_right = 10
 patch_margin_bottom = 10
+script = ExtResource("2_fiut6")
 
 [node name="UpgradesHeader" type="NinePatchRect" parent="."]
 layout_mode = 1
@@ -188,7 +190,7 @@ theme_override_fonts/font = ExtResource("5_kxrc5")
 theme_override_font_sizes/font_size = 17
 text = "Cost: $<COINS>"
 
-[node name="LevelLabel" type="Label" parent="ScrollContainer/VBoxContainer/HireWorkerBtn"]
+[node name="WorkersLabel" type="Label" parent="ScrollContainer/VBoxContainer/HireWorkerBtn"]
 layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0
@@ -476,7 +478,7 @@ theme_override_fonts/font = ExtResource("5_kxrc5")
 theme_override_font_sizes/font_size = 17
 text = "Cost: $<COINS>"
 
-[node name="LevelLabel" type="Label" parent="ScrollContainer/VBoxContainer/AddFloorBtn"]
+[node name="FloorsLabel" type="Label" parent="ScrollContainer/VBoxContainer/AddFloorBtn"]
 layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0
@@ -493,3 +495,9 @@ theme_override_colors/font_color = Color(0, 0, 0, 0.717647)
 theme_override_fonts/font = ExtResource("5_kxrc5")
 theme_override_font_sizes/font_size = 14
 text = "Floors: <F>"
+
+[connection signal="pressed" from="UpgradesHeader/CloseButton" to="." method="_on_close_button_pressed"]
+[connection signal="pressed" from="ScrollContainer/VBoxContainer/HireWorkerBtn" to="." method="_on_hire_worker_btn_pressed"]
+[connection signal="pressed" from="ScrollContainer/VBoxContainer/UpgradePowerBtn" to="." method="_on_upgrade_power_btn_pressed"]
+[connection signal="pressed" from="ScrollContainer/VBoxContainer/UpgradeCoinsBtn" to="." method="_on_upgrade_coins_btn_pressed"]
+[connection signal="pressed" from="ScrollContainer/VBoxContainer/AddFloorBtn" to="." method="_on_add_floor_btn_pressed"]

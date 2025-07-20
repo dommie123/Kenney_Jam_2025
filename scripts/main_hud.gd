@@ -1,13 +1,12 @@
 extends Control
 
 signal minigameBegun;
-signal workerHired;
-signal buildingUpgraded;
+signal toggleUpgradesMenu;
 signal gamePaused;
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	$UpgradesButton.get_popup().connect("id_pressed", self, "_on_upgrades_menu_id_pressed");
+	pass
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -25,3 +24,7 @@ func _on_minigame_button_pressed() -> void:
 
 func _on_building_changed_power_to(value: int) -> void:
 	$PowerLevel.value = value;
+
+
+func _on_upgrades_button_pressed() -> void:
+	toggleUpgradesMenu.emit();

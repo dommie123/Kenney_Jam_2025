@@ -2,6 +2,7 @@ extends Node2D
 
 signal generateCoins;
 signal changedPowerTo;
+signal updateUI;
 
 @export var maxPower: int;
 @export var maxPwrLevel: int;
@@ -19,10 +20,6 @@ var powerLevel: int;
 var coinLevel: int;
 var pwrOvercharge: int;
 
-var pwrUpgrades;
-var coinGenUpgrades;
-var floorUpgrades;
-
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	currentPower = maxPower;
@@ -33,34 +30,13 @@ func _ready() -> void:
 	coinLevel = 0;
 	pwrOvercharge = 0;
 	
-	pwrUpgrades = [
-		{ "level": 1, "coinCost": 100 },
-		{ "level": 2, "coinCost": 300 },
-		{ "level": 3, "coinCost": 750 },
-		{ "level": 4, "coinCost": 1500 },
-		{ "level": 5, "coinCost": 3000 },
-	]
-	
-	coinGenUpgrades = [
-		{ "level": 1, "coinCost": 50 },
-		{ "level": 2, "coinCost": 125 },
-		{ "level": 3, "coinCost": 350 },
-		{ "level": 4, "coinCost": 800 },
-		{ "level": 5, "coinCost": 1400 },
-	]
-	
-	floorUpgrades = [
-		{ "level": 2, "coinCost": 150 },
-		{ "level": 3, "coinCost": 500 },
-		{ "level": 4, "coinCost": 1250 },
-		{ "level": 5, "coinCost": 3000 },
-	]
-	
 	$PowerDegradeTimer.wait_time = 1 / pwrConsumptionRate;
 	$PowerDegradeTimer.start();
 	
 	$CoinGenerateTimer.wait_time = 1 / currentCoinGenRate;
 	$CoinGenerateTimer.start();
+	
+	updateUI.emit(numWorkers, calc_worker_capacity(), powerLevel, coinLevel, numFloors, maxFloors);
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:	
@@ -82,10 +58,15 @@ func upgrade_building(type: GlobalTypes.UpgradeType) -> void:
 		
 		prevLevelTilemap.visible = false;
 		currentLevelTilemap.visible = true;
+	else:
+		return;
+	
+	updateUI.emit(numWorkers, calc_worker_capacity(), powerLevel, coinLevel, numFloors, maxFloors);
+
 
 func add_worker() -> void:
-	if numWorkers < calc_worker_capacity():
-		numWorkers += 1;
+	numWorkers += 1;
+	updateUI.emit(numWorkers, calc_worker_capacity(), powerLevel, coinLevel, numFloors, maxFloors);
 
 
 func calc_worker_capacity() -> int:

@@ -63,6 +63,7 @@ offset_bottom = 72.0
 grow_horizontal = 2
 scale = Vector2(1.32, 1.35746)
 icon = ExtResource("4_pwnvx")
+flat = true
 
 [node name="Sprite2D" type="TextureRect" parent="UpgradesButton"]
 layout_mode = 1
@@ -146,4 +147,5 @@ theme_override_fonts/font = ExtResource("10_wtn7b")
 text = "Pwr"
 
 [connection signal="pressed" from="MinigameButton" to="." method="_on_minigame_button_pressed"]
+[connection signal="pressed" from="UpgradesButton" to="." method="_on_upgrades_button_pressed"]
 [connection signal="pressed" from="PauseButton" to="." method="_on_pause_button_pressed"]

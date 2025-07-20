@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://dojrmx05gxw13"]
+[gd_scene load_steps=7 format=3 uid="uid://dojrmx05gxw13"]
 
 [ext_resource type="PackedScene" uid="uid://dg2bg8sertdwb" path="res://scenes/building.tscn" id="1_nhjac"]
 [ext_resource type="Script" path="res://scripts/main_game.gd" id="1_sneoi"]
 [ext_resource type="PackedScene" uid="uid://n3mt2atqsd5w" path="res://scenes/environment.tscn" id="2_7iejw"]
 [ext_resource type="PackedScene" uid="uid://7q7wamc8w0do" path="res://scenes/main_hud.tscn" id="3_gyl7u"]
 [ext_resource type="PackedScene" uid="uid://cu5rwkrt4nxm7" path="res://scenes/minigame_hud.tscn" id="5_a4vdu"]
+[ext_resource type="PackedScene" uid="uid://d0577awd0b2lp" path="res://scenes/upgrades_menu.tscn" id="6_m8rxn"]
 
 [node name="MainGame" type="Control"]
 layout_mode = 3
@@ -18,7 +19,7 @@ script = ExtResource("1_sneoi")
 [node name="Building" parent="." instance=ExtResource("1_nhjac")]
 maxPwrLevel = 5
 maxCoinLevel = 5
-initCoinGenRate = 2.0
+initCoinGenRate = 1.0
 pwrConsumptionRate = 2.0
 initPwrOvercharge = 20
 
@@ -35,7 +36,20 @@ offset_top = 160.0
 offset_right = -352.0
 offset_bottom = -160.0
 
+[node name="UpgradesMenu" parent="." instance=ExtResource("6_m8rxn")]
+visible = false
+layout_mode = 1
+offset_left = -295.0
+offset_top = -188.0
+offset_right = 637.0
+offset_bottom = 369.0
+workerCost = 20
+
 [connection signal="changedPowerTo" from="Building" to="MainHUD" method="_on_building_changed_power_to"]
 [connection signal="generateCoins" from="Building" to="." method="_on_building_generate_coins"]
+[connection signal="updateUI" from="Building" to="." method="_on_building_update_ui"]
 [connection signal="minigameBegun" from="MainHUD" to="MinigameHUD" method="_on_main_hud_minigame_begun"]
+[connection signal="toggleUpgradesMenu" from="MainHUD" to="." method="_on_main_hud_toggle_upgrades_menu"]
 [connection signal="solvedPuzzle" from="MinigameHUD" to="Building" method="_on_minigame_hud_solved_puzzle"]
+[connection signal="tryHireWorker" from="UpgradesMenu" to="." method="_on_upgrades_menu_try_hire_worker"]
+[connection signal="tryPurchaseUpgrade" from="UpgradesMenu" to="." method="_on_upgrades_menu_try_purchase_upgrade"]
