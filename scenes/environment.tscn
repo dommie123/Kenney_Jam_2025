@@ -18,4 +18,6 @@ tile_map_data = PackedByteArray("AAAXAAgAAQAbAAoAAAAYAAYAAQAaABEAAAAYAAgAAQAcAAo
 tile_set = ExtResource("1_n741d")
 
 [node name="Building" parent="." instance=ExtResource("2_d6gub")]
+visible = false
 position = Vector2(208, 0)
+script = null

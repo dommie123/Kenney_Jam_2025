@@ -20,14 +20,16 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_sneoi")
 
+[node name="Environment" parent="." instance=ExtResource("2_7iejw")]
+
 [node name="Building" parent="." instance=ExtResource("1_nhjac")]
+position = Vector2(504, 8)
+scale = Vector2(1.5, 1.5)
 maxPwrLevel = 5
 initPwrOvercharge = 20
 maxCoinLevel = 5
 initCoinGenRate = 1.0
 pwrConsumptionRate = 2.0
-
-[node name="Environment" parent="." instance=ExtResource("2_7iejw")]
 
 [node name="MainHUD" parent="." instance=ExtResource("3_gyl7u")]
 process_mode = 3

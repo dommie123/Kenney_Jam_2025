@@ -55,31 +55,18 @@ func upgrade_building(type: GlobalTypes.UpgradeType) -> void:
 	elif type == GlobalTypes.UpgradeType.FLOOR and numFloors < maxFloors:
 		numFloors += 1;
 		
-		# TODO just figure this out in Version 2.0
-		#if numFloors - 1 == 1:
-			#$Lv1_Tilemap/TileMapBackground.hide();
-			#$Lv1_Tilemap/TileMapForeground.hide();
-			#$Lv2_Tilemap/TileMapBackground.show();
-			#$Lv2_Tilemap/TileMapForeground.show();
-		#elif numFloors - 1 == 2:
-			#$Lv2_Tilemap/TileMapBackground.hide();
-			#$Lv2_Tilemap/TileMapForeground.hide();
-			#$Lv3_Tilemap/TileMapBackground.show();
-			#$Lv3_Tilemap/TileMapForeground.show();
-		#elif numFloors - 1 == 3:
-			#$Lv3_Tilemap/TileMapBackground.hide();
-			#$Lv3_Tilemap/TileMapForeground.hide();
-			#$Lv4_Tilemap/TileMapBackground.show();
-			#$Lv4_Tilemap/TileMapForeground.show();
-		#elif numFloors - 1 == 4:
-			#$Lv4_Tilemap/TileMapBackground.hide();
-			#$Lv4_Tilemap/TileMapForeground.hide();
-			#$Lv5_Tilemap/TileMapBackground.show();
-			#$Lv5_Tilemap/TileMapForeground.show();
-		
-		# Force Godot to redraw the building asset, 
-		# hoping the tilemaps will actually update this time.
-		queue_redraw();
+		if numFloors - 1 == 1:
+			$Lv1_Tilemap.hide();
+			$Lv2_Tilemap.show();
+		elif numFloors - 1 == 2:
+			$Lv2_Tilemap.hide();
+			$Lv3_Tilemap.show();
+		elif numFloors - 1 == 3:
+			$Lv3_Tilemap.hide();
+			$Lv4_Tilemap.show();
+		elif numFloors - 1 == 4:
+			$Lv4_Tilemap.hide();
+			$Lv5_Tilemap.show();
 	else:
 		return;
 	
