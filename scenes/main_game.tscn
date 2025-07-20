@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://dojrmx05gxw13"]
+
+[ext_resource type="PackedScene" uid="uid://dg2bg8sertdwb" path="res://scenes/building.tscn" id="1_nhjac"]
+[ext_resource type="Script" path="res://scripts/main_game.gd" id="1_sneoi"]
+[ext_resource type="PackedScene" uid="uid://n3mt2atqsd5w" path="res://scenes/environment.tscn" id="2_7iejw"]
+[ext_resource type="PackedScene" uid="uid://7q7wamc8w0do" path="res://scenes/main_hud.tscn" id="3_gyl7u"]
+
+[node name="MainGame" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_sneoi")
+
+[node name="Building" parent="." instance=ExtResource("1_nhjac")]
+maxPwrLevel = 5
+maxCoinLevel = 5
+initCoinGenRate = 2.0
+pwrConsumptionRate = 4.0
+
+[node name="Environment" parent="." instance=ExtResource("2_7iejw")]
+
+[node name="MainHUD" parent="." instance=ExtResource("3_gyl7u")]
+layout_mode = 1
+
+[connection signal="generateCoins" from="Building" to="." method="_on_building_generate_coins"]

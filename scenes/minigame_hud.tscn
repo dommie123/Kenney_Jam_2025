@@ -1,0 +1,207 @@
+[gd_scene load_steps=8 format=3 uid="uid://cu5rwkrt4nxm7"]
+
+[ext_resource type="Texture2D" uid="uid://cvth2qwah0rt5" path="res://assets/kenney_ui-pack/Vector/Blue/button_rectangle_border.svg" id="1_ftfwe"]
+[ext_resource type="Script" path="res://scripts/minigame.gd" id="2_ckgrs"]
+[ext_resource type="Texture2D" uid="uid://bt0o6pwxjaxya" path="res://assets/kenney_ui-pack/Vector/Yellow/check_square_grey_square.svg" id="3_plaxr"]
+[ext_resource type="Texture2D" uid="uid://ce2p6aw3vvika" path="res://assets/kenney_ui-pack/Vector/Yellow/check_square_grey.svg" id="4_ca1fv"]
+[ext_resource type="Texture2D" uid="uid://d0t8hqsl1tem0" path="res://assets/kenney_ui-pack/Vector/Green/check_square_grey_checkmark.svg" id="4_gahmj"]
+[ext_resource type="Texture2D" uid="uid://bis1ux13hw4vp" path="res://assets/kenney_ui-pack/Vector/Red/button_square_flat.svg" id="5_o5hdl"]
+[ext_resource type="Texture2D" uid="uid://o204qm3r2v3h" path="res://assets/kenney_ui-pack/Vector/Grey/icon_cross.svg" id="6_bsg03"]
+
+[node name="MinigameHUD" type="NinePatchRect" node_paths=PackedStringArray("switches")]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 400.0
+offset_top = 144.0
+offset_right = -392.0
+offset_bottom = -184.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_ftfwe")
+patch_margin_left = 10
+patch_margin_top = 10
+patch_margin_right = 10
+patch_margin_bottom = 10
+script = ExtResource("2_ckgrs")
+switches = [NodePath("CheckButton0_0"), NodePath("CheckButton0_1"), NodePath("CheckButton0_2"), NodePath("CheckButton1_0"), NodePath("CheckButton1_1"), NodePath("CheckButton1_2"), NodePath("CheckButton2_0"), NodePath("CheckButton2_1"), NodePath("CheckButton2_2")]
+checkedIcon = ExtResource("3_plaxr")
+successIcon = ExtResource("4_gahmj")
+
+[node name="CheckButton0_0" type="CheckButton" parent="."]
+layout_mode = 1
+offset_left = 48.0
+offset_top = 48.0
+offset_right = 92.0
+offset_bottom = 88.0
+scale = Vector2(1.2, 1.2)
+theme_override_icons/checked = ExtResource("3_plaxr")
+theme_override_icons/unchecked = ExtResource("4_ca1fv")
+theme_override_icons/checked_disabled = ExtResource("4_gahmj")
+
+[node name="CheckButton0_1" type="CheckButton" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -28.0
+offset_top = 48.0
+offset_right = 16.0
+offset_bottom = 88.0
+grow_horizontal = 2
+scale = Vector2(1.2, 1.2)
+theme_override_icons/checked = ExtResource("3_plaxr")
+theme_override_icons/unchecked = ExtResource("4_ca1fv")
+theme_override_icons/checked_disabled = ExtResource("4_gahmj")
+
+[node name="CheckButton0_2" type="CheckButton" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -104.0
+offset_top = 48.0
+offset_right = -60.0
+offset_bottom = 88.0
+grow_horizontal = 0
+scale = Vector2(1.2, 1.2)
+theme_override_icons/checked = ExtResource("3_plaxr")
+theme_override_icons/unchecked = ExtResource("4_ca1fv")
+theme_override_icons/checked_disabled = ExtResource("4_gahmj")
+
+[node name="CheckButton1_0" type="CheckButton" parent="."]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 48.0
+offset_top = -24.0
+offset_right = 92.0
+offset_bottom = 16.0
+grow_vertical = 2
+scale = Vector2(1.2, 1.2)
+theme_override_icons/checked = ExtResource("3_plaxr")
+theme_override_icons/unchecked = ExtResource("4_ca1fv")
+theme_override_icons/checked_disabled = ExtResource("4_gahmj")
+
+[node name="CheckButton1_1" type="CheckButton" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -28.0
+offset_top = -24.0
+offset_right = 16.0
+offset_bottom = 16.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.2, 1.2)
+theme_override_icons/checked = ExtResource("3_plaxr")
+theme_override_icons/unchecked = ExtResource("4_ca1fv")
+theme_override_icons/checked_disabled = ExtResource("4_gahmj")
+
+[node name="CheckButton1_2" type="CheckButton" parent="."]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -104.0
+offset_top = -24.0
+offset_right = -60.0
+offset_bottom = 16.0
+grow_horizontal = 0
+grow_vertical = 2
+scale = Vector2(1.2, 1.2)
+theme_override_icons/checked = ExtResource("3_plaxr")
+theme_override_icons/unchecked = ExtResource("4_ca1fv")
+theme_override_icons/checked_disabled = ExtResource("4_gahmj")
+
+[node name="CheckButton2_0" type="CheckButton" parent="."]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 48.0
+offset_top = -96.0
+offset_right = 92.0
+offset_bottom = -56.0
+grow_vertical = 0
+scale = Vector2(1.2, 1.2)
+theme_override_icons/checked = ExtResource("3_plaxr")
+theme_override_icons/unchecked = ExtResource("4_ca1fv")
+theme_override_icons/checked_disabled = ExtResource("4_gahmj")
+
+[node name="CheckButton2_1" type="CheckButton" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -28.0
+offset_top = -96.0
+offset_right = 16.0
+offset_bottom = -56.0
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(1.2, 1.2)
+theme_override_icons/checked = ExtResource("3_plaxr")
+theme_override_icons/unchecked = ExtResource("4_ca1fv")
+theme_override_icons/checked_disabled = ExtResource("4_gahmj")
+
+[node name="CheckButton2_2" type="CheckButton" parent="."]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -104.0
+offset_top = -96.0
+offset_right = -60.0
+offset_bottom = -56.0
+grow_horizontal = 0
+grow_vertical = 0
+scale = Vector2(1.2, 1.2)
+theme_override_icons/checked = ExtResource("3_plaxr")
+theme_override_icons/unchecked = ExtResource("4_ca1fv")
+theme_override_icons/checked_disabled = ExtResource("4_gahmj")
+
+[node name="CloseButton" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -44.0
+offset_top = 8.0
+offset_right = 28.0
+offset_bottom = 80.0
+grow_horizontal = 0
+scale = Vector2(0.5, 0.5)
+icon = ExtResource("5_o5hdl")
+flat = true
+
+[node name="TextureRect" type="TextureRect" parent="CloseButton"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("6_bsg03")
+
+[node name="DisappearAfterSeconds" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="pressed" from="CloseButton" to="." method="_on_close_button_pressed"]
+[connection signal="timeout" from="DisappearAfterSeconds" to="." method="_on_disappear_after_seconds_timeout"]

@@ -3,14 +3,14 @@ extends Node2D
 signal generateCoins;
 
 @export var maxPower: int;
-@export var currentPwrLevel: int;
-@export var currentCoinLevel: int;
-@export var initCoinGenRate: int;
-@export var pwrConsumptionRate: int;
+@export var maxPwrLevel: int;
+@export var maxCoinLevel: int;
+@export var initCoinGenRate: float;
+@export var pwrConsumptionRate: float;
 @export var maxFloors: int;
 
-var currentPower: int;
-var currentCoinGenRate: int;
+var currentPower: float;
+var currentCoinGenRate: float;
 var numWorkers: int;
 var numFloors: int;
 var powerLevel: int;
@@ -18,6 +18,7 @@ var coinLevel: int;
 
 var pwrUpgrades;
 var coinGenUpgrades;
+var floorUpgrades;
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -44,6 +45,13 @@ func _ready() -> void:
 		{ "level": 5, "coinCost": 1400 },
 	]
 	
+	floorUpgrades = [
+		{ "level": 2, "coinCost": 150 },
+		{ "level": 3, "coinCost": 500 },
+		{ "level": 4, "coinCost": 1250 },
+		{ "level": 5, "coinCost": 3000 },
+	]
+	
 	$PowerDegradeTimer.wait_time = 1 / pwrConsumptionRate;
 	$PowerDegradeTimer.start();
 	
@@ -56,16 +64,20 @@ func _process(delta: float) -> void:
 
 
 func upgrade_building(type: GlobalTypes.UpgradeType) -> void:
-	if type == GlobalTypes.UpgradeType.POWER:
+	if type == GlobalTypes.UpgradeType.POWER and powerLevel < maxPwrLevel:
 		pwrConsumptionRate /= 1.5;
 		powerLevel += 1;
-	elif type == GlobalTypes.UpgradeType.COINS:
+	elif type == GlobalTypes.UpgradeType.COINS and coinLevel < maxCoinLevel:
 		initCoinGenRate += 2;
 		currentCoinGenRate = initCoinGenRate;
 		coinLevel += 1;
-	elif type == GlobalTypes.UpgradeType.FLOOR and numFloors <= maxFloors:
+	elif type == GlobalTypes.UpgradeType.FLOOR and numFloors < maxFloors:
+		var prevLevelTilemap = get_node("Lv%d_Tilemap" % numFloors);
 		numFloors += 1;
-
+		var currentLevelTilemap = get_node("Lv%d_Tilemap" % numFloors);
+		
+		prevLevelTilemap.visible = false;
+		currentLevelTilemap.visible = true;
 
 func add_worker() -> void:
 	if numWorkers < calc_worker_capacity():
@@ -82,4 +94,4 @@ func _on_power_degrade_timer_timeout() -> void:
 
 
 func _on_coin_generate_timer_timeout() -> void:
-	generateCoins.emit(1 if currentPower > 0 else 0);
+	generateCoins.emit((1 + numWorkers) if currentPower > 0 else 0);
