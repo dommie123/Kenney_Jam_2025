@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://dojrmx05gxw13"]
+[gd_scene load_steps=12 format=3 uid="uid://dojrmx05gxw13"]
 
 [ext_resource type="PackedScene" uid="uid://dg2bg8sertdwb" path="res://scenes/building.tscn" id="1_nhjac"]
 [ext_resource type="Script" path="res://scripts/main_game.gd" id="1_sneoi"]
@@ -10,6 +10,7 @@
 [ext_resource type="FontFile" uid="uid://b7e188vsw3f1v" path="res://assets/kenney_ui-pack/Font/Kenney Future.ttf" id="8_8l7wa"]
 [ext_resource type="FontFile" uid="uid://csjph1oblw7kn" path="res://assets/kenney_ui-pack/Font/Kenney Future Narrow.ttf" id="9_r1knc"]
 [ext_resource type="Texture2D" uid="uid://b4j8rlibf17bb" path="res://assets/kenney_ui-pack/PNG/Red/Default/button_rectangle_gloss.png" id="10_ethuh"]
+[ext_resource type="AudioStream" uid="uid://6bgb2brbv2ht" path="res://audio/bgm/jazz-at-dizzyx27s-303230.mp3" id="11_64q7h"]
 
 [node name="MainGame" type="Control"]
 layout_mode = 3
@@ -77,10 +78,10 @@ anchors_preset = 14
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
-offset_left = 17.0
-offset_top = -94.5
-offset_right = -14.0
-offset_bottom = -49.5
+offset_left = 21.0
+offset_top = -92.0
+offset_right = -10.0
+offset_bottom = -47.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_fonts/font = ExtResource("8_8l7wa")
@@ -96,16 +97,17 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -74.5
-offset_top = 13.5
-offset_right = 75.5
-offset_bottom = 39.5
+offset_left = -89.0
+offset_top = 12.0
+offset_right = 87.0
+offset_bottom = 58.0
 grow_horizontal = 2
 grow_vertical = 2
 
 [node name="ExitButton" type="Button" parent="PauseMenu/HBoxContainer"]
 layout_mode = 2
-size_flags_horizontal = 4
+size_flags_horizontal = 3
+mouse_default_cursor_shape = 2
 theme_override_fonts/font = ExtResource("9_r1knc")
 text = "Exit to Title"
 flat = true
@@ -124,14 +126,22 @@ patch_margin_right = 10
 patch_margin_bottom = 10
 
 [node name="Label" type="Label" parent="PauseMenu/HBoxContainer/ExitButton"]
-layout_mode = 0
-offset_right = 150.0
-offset_bottom = 26.0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.631373)
 theme_override_fonts/font = ExtResource("9_r1knc")
-theme_override_font_sizes/font_size = 12
+theme_override_font_sizes/font_size = 14
 text = "Exit to Title"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="GameBGM" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("11_64q7h")
+autoplay = true
 
 [connection signal="changedPowerTo" from="Building" to="MainHUD" method="_on_building_changed_power_to"]
 [connection signal="generateCoins" from="Building" to="." method="_on_building_generate_coins"]

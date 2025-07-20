@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://v8kgb88anatd"]
+[gd_scene load_steps=9 format=3 uid="uid://v8kgb88anatd"]
 
 [ext_resource type="Script" path="res://scripts/title_screen.gd" id="1_r3u0h"]
 [ext_resource type="PackedScene" uid="uid://n3mt2atqsd5w" path="res://scenes/environment.tscn" id="1_w7mfi"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://bpknsg77jmoxw" path="res://assets/kenney_ui-pack/PNG/Grey/Double/button_rectangle_depth_border.png" id="4_qhojr"]
 [ext_resource type="Texture2D" uid="uid://dvl6nnvdijic8" path="res://assets/kenney_ui-pack/PNG/Blue/Double/button_rectangle_depth_gloss.png" id="6_hawpi"]
 [ext_resource type="FontFile" uid="uid://b7e188vsw3f1v" path="res://assets/kenney_ui-pack/Font/Kenney Future.ttf" id="7_w45sf"]
+[ext_resource type="AudioStream" uid="uid://gbp02ufntr3h" path="res://audio/bgm/jazz-background-music-333352.mp3" id="8_ujd7y"]
 
 [node name="TitleScreen" type="Control"]
 layout_mode = 3
@@ -79,6 +80,7 @@ offset_right = 104.0
 offset_bottom = -128.0
 grow_horizontal = 2
 grow_vertical = 0
+mouse_default_cursor_shape = 2
 flat = true
 
 [node name="NinePatchRect" type="NinePatchRect" parent="StartButton"]
@@ -109,5 +111,9 @@ theme_override_font_sizes/font_size = 24
 text = "Start"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="TitleBGM" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("8_ujd7y")
+autoplay = true
 
 [connection signal="pressed" from="StartButton" to="." method="_on_start_button_pressed"]

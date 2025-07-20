@@ -57,6 +57,7 @@ offset_bottom = 75.0643
 grow_horizontal = 0
 scale = Vector2(0.637541, 0.590607)
 size_flags_horizontal = 8
+mouse_default_cursor_shape = 2
 icon = ExtResource("3_xx0bc")
 flat = true
 
@@ -114,6 +115,7 @@ alignment = 1
 [node name="HireWorkerBtn" type="Button" parent="ScrollContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
+mouse_default_cursor_shape = 2
 flat = true
 
 [node name="NinePatchRect" type="NinePatchRect" parent="ScrollContainer/VBoxContainer/HireWorkerBtn"]
@@ -211,6 +213,7 @@ text = "Workers: <C>/<M>"
 [node name="UpgradePowerBtn" type="Button" parent="ScrollContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
+mouse_default_cursor_shape = 2
 flat = true
 
 [node name="NinePatchRect" type="NinePatchRect" parent="ScrollContainer/VBoxContainer/UpgradePowerBtn"]
@@ -307,6 +310,7 @@ text = "Current Level: <Lv>"
 [node name="UpgradeCoinsBtn" type="Button" parent="ScrollContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
+mouse_default_cursor_shape = 2
 flat = true
 
 [node name="NinePatchRect" type="NinePatchRect" parent="ScrollContainer/VBoxContainer/UpgradeCoinsBtn"]
@@ -403,6 +407,7 @@ text = "Current Level: <Lv>"
 [node name="AddFloorBtn" type="Button" parent="ScrollContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
+mouse_default_cursor_shape = 2
 flat = true
 
 [node name="NinePatchRect" type="NinePatchRect" parent="ScrollContainer/VBoxContainer/AddFloorBtn"]
