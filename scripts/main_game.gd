@@ -1,5 +1,7 @@
 extends Control
 
+#var TitleScreen: PackedScene = preload("res://scenes/title_screen.tscn");
+
 var coins: int;
 var minigameCompleted: bool;
 
@@ -67,5 +69,6 @@ func _on_main_hud_minigame_begun() -> void:
 
 
 func _on_exit_button_pressed() -> void:
-	# TODO exit to the title screen
-	pass # Replace with function body.
+	if get_tree().paused:
+		get_tree().paused = false;
+	get_tree().change_scene_to_file("res://scenes/title_screen.tscn")

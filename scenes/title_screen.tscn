@@ -1,0 +1,113 @@
+[gd_scene load_steps=8 format=3 uid="uid://v8kgb88anatd"]
+
+[ext_resource type="Script" path="res://scripts/title_screen.gd" id="1_r3u0h"]
+[ext_resource type="PackedScene" uid="uid://n3mt2atqsd5w" path="res://scenes/environment.tscn" id="1_w7mfi"]
+[ext_resource type="PackedScene" uid="uid://dg2bg8sertdwb" path="res://scenes/building.tscn" id="2_p5bo4"]
+[ext_resource type="FontFile" uid="uid://csjph1oblw7kn" path="res://assets/kenney_ui-pack/Font/Kenney Future Narrow.ttf" id="3_2xicx"]
+[ext_resource type="Texture2D" uid="uid://bpknsg77jmoxw" path="res://assets/kenney_ui-pack/PNG/Grey/Double/button_rectangle_depth_border.png" id="4_qhojr"]
+[ext_resource type="Texture2D" uid="uid://dvl6nnvdijic8" path="res://assets/kenney_ui-pack/PNG/Blue/Double/button_rectangle_depth_gloss.png" id="6_hawpi"]
+[ext_resource type="FontFile" uid="uid://b7e188vsw3f1v" path="res://assets/kenney_ui-pack/Font/Kenney Future.ttf" id="7_w45sf"]
+
+[node name="TitleScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_r3u0h")
+
+[node name="Environment" parent="." instance=ExtResource("1_w7mfi")]
+
+[node name="Building" parent="." instance=ExtResource("2_p5bo4")]
+position = Vector2(504, 8)
+scale = Vector2(1.5, 1.5)
+script = null
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -256.0
+offset_top = 16.0
+offset_right = 256.0
+offset_bottom = 232.0
+grow_horizontal = 2
+texture = ExtResource("4_qhojr")
+patch_margin_left = 10
+patch_margin_top = 10
+patch_margin_right = 10
+patch_margin_bottom = 20
+
+[node name="TitleLabel" type="Label" parent="NinePatchRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -290.5
+offset_top = -90.5
+offset_right = 306.5
+offset_bottom = 74.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 0.988235, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.72549)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 4
+theme_override_constants/shadow_offset_y = 4
+theme_override_constants/outline_size = 5
+theme_override_constants/shadow_outline_size = 5
+theme_override_fonts/font = ExtResource("3_2xicx")
+theme_override_font_sizes/font_size = 72
+text = "Mob Boss Tycoon"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="StartButton" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -104.0
+offset_top = -200.0
+offset_right = 104.0
+offset_bottom = -128.0
+grow_horizontal = 2
+grow_vertical = 0
+flat = true
+
+[node name="NinePatchRect" type="NinePatchRect" parent="StartButton"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("6_hawpi")
+patch_margin_left = 10
+patch_margin_top = 10
+patch_margin_right = 10
+patch_margin_bottom = 20
+
+[node name="StartLabel" type="Label" parent="StartButton"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 1
+theme_override_constants/shadow_offset_y = 2
+theme_override_fonts/font = ExtResource("7_w45sf")
+theme_override_font_sizes/font_size = 24
+text = "Start"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="StartButton" to="." method="_on_start_button_pressed"]
