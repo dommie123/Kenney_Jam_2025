@@ -1,6 +1,7 @@
 extends Node2D
 
 signal generateCoins;
+signal changedPowerTo;
 
 @export var maxPower: int;
 @export var maxPwrLevel: int;
@@ -8,6 +9,7 @@ signal generateCoins;
 @export var initCoinGenRate: float;
 @export var pwrConsumptionRate: float;
 @export var maxFloors: int;
+@export var initPwrOvercharge: int;
 
 var currentPower: float;
 var currentCoinGenRate: float;
@@ -15,6 +17,7 @@ var numWorkers: int;
 var numFloors: int;
 var powerLevel: int;
 var coinLevel: int;
+var pwrOvercharge: int;
 
 var pwrUpgrades;
 var coinGenUpgrades;
@@ -28,6 +31,7 @@ func _ready() -> void:
 	numFloors = 1;
 	powerLevel = 0;
 	coinLevel = 0;
+	pwrOvercharge = 0;
 	
 	pwrUpgrades = [
 		{ "level": 1, "coinCost": 100 },
@@ -89,9 +93,18 @@ func calc_worker_capacity() -> int:
 
 
 func _on_power_degrade_timer_timeout() -> void:
-	if currentPower > 0:
+	if pwrOvercharge > 0:
+		pwrOvercharge -= 1;
+	elif currentPower > 0:
 		currentPower -= 1;
+		changedPowerTo.emit(currentPower)
 
 
 func _on_coin_generate_timer_timeout() -> void:
 	generateCoins.emit((1 + numWorkers) if currentPower > 0 else 0);
+
+
+func _on_minigame_hud_solved_puzzle() -> void:
+	currentPower = maxPower;
+	pwrOvercharge = initPwrOvercharge;
+	changedPowerTo.emit(currentPower)

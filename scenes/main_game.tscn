@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://dojrmx05gxw13"]
+[gd_scene load_steps=6 format=3 uid="uid://dojrmx05gxw13"]
 
 [ext_resource type="PackedScene" uid="uid://dg2bg8sertdwb" path="res://scenes/building.tscn" id="1_nhjac"]
 [ext_resource type="Script" path="res://scripts/main_game.gd" id="1_sneoi"]
 [ext_resource type="PackedScene" uid="uid://n3mt2atqsd5w" path="res://scenes/environment.tscn" id="2_7iejw"]
 [ext_resource type="PackedScene" uid="uid://7q7wamc8w0do" path="res://scenes/main_hud.tscn" id="3_gyl7u"]
+[ext_resource type="PackedScene" uid="uid://cu5rwkrt4nxm7" path="res://scenes/minigame_hud.tscn" id="5_a4vdu"]
 
 [node name="MainGame" type="Control"]
 layout_mode = 3
@@ -18,11 +19,23 @@ script = ExtResource("1_sneoi")
 maxPwrLevel = 5
 maxCoinLevel = 5
 initCoinGenRate = 2.0
-pwrConsumptionRate = 4.0
+pwrConsumptionRate = 2.0
+initPwrOvercharge = 20
 
 [node name="Environment" parent="." instance=ExtResource("2_7iejw")]
 
 [node name="MainHUD" parent="." instance=ExtResource("3_gyl7u")]
 layout_mode = 1
 
+[node name="MinigameHUD" parent="." instance=ExtResource("5_a4vdu")]
+visible = false
+layout_mode = 1
+offset_left = 352.0
+offset_top = 160.0
+offset_right = -352.0
+offset_bottom = -160.0
+
+[connection signal="changedPowerTo" from="Building" to="MainHUD" method="_on_building_changed_power_to"]
 [connection signal="generateCoins" from="Building" to="." method="_on_building_generate_coins"]
+[connection signal="minigameBegun" from="MainHUD" to="MinigameHUD" method="_on_main_hud_minigame_begun"]
+[connection signal="solvedPuzzle" from="MinigameHUD" to="Building" method="_on_minigame_hud_solved_puzzle"]
