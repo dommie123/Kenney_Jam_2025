@@ -38,11 +38,21 @@ theme_type_variation = &"FlatButton"
 icon = ExtResource("1_gbtks")
 autowrap_mode = 3
 
-[node name="Sprite2D" type="Sprite2D" parent="MinigameButton"]
-position = Vector2(36, 34)
+[node name="Sprite2D" type="TextureRect" parent="MinigameButton"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 3.33333
+offset_top = -0.666667
+offset_right = 3.33334
+offset_bottom = -0.666664
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.909471, 0.986443)
 texture = ExtResource("3_3khw2")
 
-[node name="UpgradesButton" type="MenuButton" parent="."]
+[node name="UpgradesButton" type="Button" parent="."]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -53,16 +63,21 @@ offset_bottom = 72.0
 grow_horizontal = 2
 scale = Vector2(1.32, 1.35746)
 icon = ExtResource("4_pwnvx")
-item_count = 3
-popup/item_0/text = "Hire Worker"
-popup/item_1/text = "Upgrade Building"
-popup/item_1/id = 1
-popup/item_2/text = "Add Floor"
-popup/item_2/id = 2
 
-[node name="Sprite2D" type="Sprite2D" parent="UpgradesButton"]
-position = Vector2(36.3636, 35.3602)
-scale = Vector2(1.2, 1.2)
+[node name="Sprite2D" type="TextureRect" parent="UpgradesButton"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -17.0606
+offset_top = -16.8466
+offset_right = 6.93935
+offset_bottom = 7.15342
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.41733, 1.34863)
 texture = ExtResource("5_hpbx2")
 
 [node name="PauseButton" type="Button" parent="."]

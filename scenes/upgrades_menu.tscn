@@ -1,0 +1,495 @@
+[gd_scene load_steps=12 format=3 uid="uid://d0577awd0b2lp"]
+
+[ext_resource type="Texture2D" uid="uid://cvth2qwah0rt5" path="res://assets/kenney_ui-pack/Vector/Blue/button_rectangle_border.svg" id="1_e3o5w"]
+[ext_resource type="Texture2D" uid="uid://3asi1ww7th3x" path="res://assets/kenney_ui-pack/Vector/Blue/button_rectangle_gloss.svg" id="2_xud25"]
+[ext_resource type="Texture2D" uid="uid://bis1ux13hw4vp" path="res://assets/kenney_ui-pack/Vector/Red/button_square_flat.svg" id="3_xx0bc"]
+[ext_resource type="Texture2D" uid="uid://o204qm3r2v3h" path="res://assets/kenney_ui-pack/Vector/Grey/icon_cross.svg" id="4_144iw"]
+[ext_resource type="FontFile" uid="uid://csjph1oblw7kn" path="res://assets/kenney_ui-pack/Font/Kenney Future Narrow.ttf" id="5_kxrc5"]
+[ext_resource type="Texture2D" uid="uid://bodvv38aauqt" path="res://assets/kenney_ui-pack/Vector/Blue/button_rectangle_depth_border.svg" id="6_i8ug5"]
+[ext_resource type="Texture2D" uid="uid://dpg7iphp1a71q" path="res://assets/kenney_sokoban-pack/PNG/Default size/Player/player_01.png" id="7_bft1l"]
+[ext_resource type="FontFile" uid="uid://b7e188vsw3f1v" path="res://assets/kenney_ui-pack/Font/Kenney Future.ttf" id="8_0mu6o"]
+[ext_resource type="Texture2D" uid="uid://k1oh1qtcbb3g" path="res://assets/kenney_game-icons/PNG/Black/2x/power.png" id="9_ua6r5"]
+[ext_resource type="Texture2D" uid="uid://bs6lmjj6yi7rc" path="res://assets/kenney_ui-pack/PNG/Yellow/Default/button_round_gradient.png" id="10_s4lu6"]
+[ext_resource type="Texture2D" uid="uid://bmgg2m6jh3lsq" path="res://assets/kenney_cursor-pack/PNG/Outline/Default/stairs_up.png" id="11_ghnjo"]
+
+[node name="UpgradesMenu" type="NinePatchRect"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -305.0
+offset_top = -172.0
+offset_right = 627.0
+offset_bottom = 385.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.64563, 0.65267)
+texture = ExtResource("1_e3o5w")
+patch_margin_left = 10
+patch_margin_top = 10
+patch_margin_right = 10
+patch_margin_bottom = 10
+
+[node name="UpgradesHeader" type="NinePatchRect" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 51.0
+grow_horizontal = 2
+texture = ExtResource("2_xud25")
+patch_margin_left = 10
+patch_margin_top = 10
+patch_margin_right = 10
+patch_margin_bottom = 10
+
+[node name="CloseButton" type="Button" parent="UpgradesHeader"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -52.2397
+offset_top = 3.06434
+offset_right = 19.7603
+offset_bottom = 75.0643
+grow_horizontal = 0
+scale = Vector2(0.637541, 0.590607)
+size_flags_horizontal = 8
+icon = ExtResource("3_xx0bc")
+flat = true
+
+[node name="TextureRect" type="TextureRect" parent="UpgradesHeader/CloseButton"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_144iw")
+
+[node name="UpgradesLabel" type="Label" parent="UpgradesHeader"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -114.5
+offset_top = -10.5
+offset_right = 114.5
+offset_bottom = 10.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("5_kxrc5")
+theme_override_font_sizes/font_size = 24
+text = "Building Upgrades"
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 10.8421
+offset_top = 55.158
+offset_right = -10.3479
+offset_bottom = -11.842
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+alignment = 1
+
+[node name="HireWorkerBtn" type="Button" parent="ScrollContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+flat = true
+
+[node name="NinePatchRect" type="NinePatchRect" parent="ScrollContainer/VBoxContainer/HireWorkerBtn"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("6_i8ug5")
+patch_margin_left = 10
+patch_margin_top = 10
+patch_margin_right = 10
+patch_margin_bottom = 10
+
+[node name="TextureRect" type="TextureRect" parent="ScrollContainer/VBoxContainer/HireWorkerBtn"]
+layout_mode = 0
+offset_left = 13.9399
+offset_top = 12.2573
+offset_right = 53.9399
+offset_bottom = 52.2573
+scale = Vector2(1.39584, 1.39232)
+texture = ExtResource("7_bft1l")
+
+[node name="HireWorkerMainLabel" type="Label" parent="ScrollContainer/VBoxContainer/HireWorkerBtn"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -21.3154
+offset_top = 13.7895
+offset_right = 18.6846
+offset_bottom = 36.7895
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0, 0, 0, 0.803922)
+theme_override_fonts/font = ExtResource("8_0mu6o")
+theme_override_font_sizes/font_size = 24
+text = "Hire Worker"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HireWorkerDescription" type="Label" parent="ScrollContainer/VBoxContainer/HireWorkerBtn"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -207.18
+offset_top = -18.1315
+offset_right = 204.82
+offset_bottom = 34.8685
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 0.811765)
+theme_override_fonts/font = ExtResource("5_kxrc5")
+theme_override_font_sizes/font_size = 12
+text = "Adds another worker to your organization. Workers earn you more coins per cycle, but your building only has enough room for so many."
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="CostLabel" type="Label" parent="ScrollContainer/VBoxContainer/HireWorkerBtn"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -191.323
+offset_top = 21.4503
+offset_right = -19.3226
+offset_bottom = 44.4503
+grow_horizontal = 0
+theme_override_colors/font_color = Color(0, 0, 0, 0.792157)
+theme_override_fonts/font = ExtResource("5_kxrc5")
+theme_override_font_sizes/font_size = 17
+text = "Cost: $<COINS>"
+
+[node name="LevelLabel" type="Label" parent="ScrollContainer/VBoxContainer/HireWorkerBtn"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -67.4126
+offset_top = -41.1805
+offset_right = -27.4126
+offset_bottom = -18.1805
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_colors/font_color = Color(0, 0, 0, 0.717647)
+theme_override_fonts/font = ExtResource("5_kxrc5")
+theme_override_font_sizes/font_size = 14
+text = "Workers: <C>/<M>"
+
+[node name="UpgradePowerBtn" type="Button" parent="ScrollContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+flat = true
+
+[node name="NinePatchRect" type="NinePatchRect" parent="ScrollContainer/VBoxContainer/UpgradePowerBtn"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("6_i8ug5")
+patch_margin_left = 10
+patch_margin_top = 10
+patch_margin_right = 10
+patch_margin_bottom = 10
+
+[node name="TextureRect" type="TextureRect" parent="ScrollContainer/VBoxContainer/UpgradePowerBtn"]
+offset_left = 13.9399
+offset_top = 12.2573
+offset_right = 53.9399
+offset_bottom = 52.2573
+scale = Vector2(0.859021, 0.87523)
+texture = ExtResource("9_ua6r5")
+
+[node name="UpgradePowerMainLabel" type="Label" parent="ScrollContainer/VBoxContainer/UpgradePowerBtn"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -21.3154
+offset_top = 13.7895
+offset_right = 18.6846
+offset_bottom = 36.7895
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0, 0, 0, 0.803922)
+theme_override_fonts/font = ExtResource("8_0mu6o")
+theme_override_font_sizes/font_size = 24
+text = "Building Power"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="UpgradePowerDescription" type="Label" parent="ScrollContainer/VBoxContainer/UpgradePowerBtn"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -199.436
+offset_top = -19.0581
+offset_right = 196.564
+offset_bottom = 32.9419
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 0.811765)
+theme_override_fonts/font = ExtResource("5_kxrc5")
+theme_override_font_sizes/font_size = 12
+text = "Upgrades your building's power generators, allowing your organization to keep running longer."
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="CostLabel" type="Label" parent="ScrollContainer/VBoxContainer/UpgradePowerBtn"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -191.323
+offset_top = 21.4503
+offset_right = -19.3226
+offset_bottom = 44.4503
+grow_horizontal = 0
+theme_override_colors/font_color = Color(0, 0, 0, 0.792157)
+theme_override_fonts/font = ExtResource("5_kxrc5")
+theme_override_font_sizes/font_size = 17
+text = "Cost: $<COINS>"
+
+[node name="LevelLabel" type="Label" parent="ScrollContainer/VBoxContainer/UpgradePowerBtn"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -67.4126
+offset_top = -41.1805
+offset_right = -27.4126
+offset_bottom = -18.1805
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_colors/font_color = Color(0, 0, 0, 0.717647)
+theme_override_fonts/font = ExtResource("5_kxrc5")
+theme_override_font_sizes/font_size = 14
+text = "Current Level: <Lv>"
+
+[node name="UpgradeCoinsBtn" type="Button" parent="ScrollContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+flat = true
+
+[node name="NinePatchRect" type="NinePatchRect" parent="ScrollContainer/VBoxContainer/UpgradeCoinsBtn"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("6_i8ug5")
+patch_margin_left = 10
+patch_margin_top = 10
+patch_margin_right = 10
+patch_margin_bottom = 10
+
+[node name="TextureRect" type="TextureRect" parent="ScrollContainer/VBoxContainer/UpgradeCoinsBtn"]
+offset_left = 23.2331
+offset_top = 22.6615
+offset_right = 87.2331
+offset_bottom = 86.6615
+scale = Vector2(1.12215, 1.04866)
+texture = ExtResource("10_s4lu6")
+
+[node name="UpgradeCoinsMainLabel" type="Label" parent="ScrollContainer/VBoxContainer/UpgradeCoinsBtn"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -21.3154
+offset_top = 13.7895
+offset_right = 18.6846
+offset_bottom = 36.7895
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0, 0, 0, 0.803922)
+theme_override_fonts/font = ExtResource("8_0mu6o")
+theme_override_font_sizes/font_size = 24
+text = "Building Revenue"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="UpgradeCoinsDescription" type="Label" parent="ScrollContainer/VBoxContainer/UpgradeCoinsBtn"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -190.143
+offset_top = -16.9203
+offset_right = 195.857
+offset_bottom = 31.0797
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 0.811765)
+theme_override_fonts/font = ExtResource("5_kxrc5")
+theme_override_font_sizes/font_size = 12
+text = "Your money printers become more efficient, increasing the rate at which you earn coins."
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="CostLabel" type="Label" parent="ScrollContainer/VBoxContainer/UpgradeCoinsBtn"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -191.323
+offset_top = 21.4503
+offset_right = -19.3226
+offset_bottom = 44.4503
+grow_horizontal = 0
+theme_override_colors/font_color = Color(0, 0, 0, 0.792157)
+theme_override_fonts/font = ExtResource("5_kxrc5")
+theme_override_font_sizes/font_size = 17
+text = "Cost: $<COINS>"
+
+[node name="LevelLabel" type="Label" parent="ScrollContainer/VBoxContainer/UpgradeCoinsBtn"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -67.4126
+offset_top = -41.1805
+offset_right = -27.4126
+offset_bottom = -18.1805
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_colors/font_color = Color(0, 0, 0, 0.717647)
+theme_override_fonts/font = ExtResource("5_kxrc5")
+theme_override_font_sizes/font_size = 14
+text = "Current Level: <Lv>"
+
+[node name="AddFloorBtn" type="Button" parent="ScrollContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+flat = true
+
+[node name="NinePatchRect" type="NinePatchRect" parent="ScrollContainer/VBoxContainer/AddFloorBtn"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("6_i8ug5")
+patch_margin_left = 10
+patch_margin_top = 10
+patch_margin_right = 10
+patch_margin_bottom = 10
+
+[node name="TextureRect" type="TextureRect" parent="ScrollContainer/VBoxContainer/AddFloorBtn"]
+offset_left = 21.6842
+offset_top = 22.2349
+offset_right = 61.6842
+offset_bottom = 62.2349
+scale = Vector2(1.83261, 1.72193)
+texture = ExtResource("11_ghnjo")
+
+[node name="AddFloorMainLabel" type="Label" parent="ScrollContainer/VBoxContainer/AddFloorBtn"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -21.3154
+offset_top = 13.7895
+offset_right = 18.6846
+offset_bottom = 36.7895
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0, 0, 0, 0.803922)
+theme_override_fonts/font = ExtResource("8_0mu6o")
+theme_override_font_sizes/font_size = 24
+text = "Add Floor"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AddFloorDescription" type="Label" parent="ScrollContainer/VBoxContainer/AddFloorBtn"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -203.0
+offset_top = -17.0
+offset_right = 202.0
+offset_bottom = 31.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 0.811765)
+theme_override_fonts/font = ExtResource("5_kxrc5")
+theme_override_font_sizes/font_size = 12
+text = "Adds another floor to your building. With each floor added, your building could support up to five more workers."
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="CostLabel" type="Label" parent="ScrollContainer/VBoxContainer/AddFloorBtn"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -191.323
+offset_top = 21.4503
+offset_right = -19.3226
+offset_bottom = 44.4503
+grow_horizontal = 0
+theme_override_colors/font_color = Color(0, 0, 0, 0.792157)
+theme_override_fonts/font = ExtResource("5_kxrc5")
+theme_override_font_sizes/font_size = 17
+text = "Cost: $<COINS>"
+
+[node name="LevelLabel" type="Label" parent="ScrollContainer/VBoxContainer/AddFloorBtn"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -67.4126
+offset_top = -41.1805
+offset_right = -27.4126
+offset_bottom = -18.1805
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_colors/font_color = Color(0, 0, 0, 0.717647)
+theme_override_fonts/font = ExtResource("5_kxrc5")
+theme_override_font_sizes/font_size = 14
+text = "Floors: <F>"
