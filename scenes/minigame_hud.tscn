@@ -1,12 +1,14 @@
-[gd_scene load_steps=8 format=3 uid="uid://cu5rwkrt4nxm7"]
+[gd_scene load_steps=10 format=3 uid="uid://cu5rwkrt4nxm7"]
 
 [ext_resource type="Texture2D" uid="uid://cvth2qwah0rt5" path="res://assets/kenney_ui-pack/Vector/Blue/button_rectangle_border.svg" id="1_ftfwe"]
 [ext_resource type="Script" path="res://scripts/minigame.gd" id="2_ckgrs"]
 [ext_resource type="Texture2D" uid="uid://bt0o6pwxjaxya" path="res://assets/kenney_ui-pack/Vector/Yellow/check_square_grey_square.svg" id="3_plaxr"]
 [ext_resource type="Texture2D" uid="uid://ce2p6aw3vvika" path="res://assets/kenney_ui-pack/Vector/Yellow/check_square_grey.svg" id="4_ca1fv"]
 [ext_resource type="Texture2D" uid="uid://d0t8hqsl1tem0" path="res://assets/kenney_ui-pack/Vector/Green/check_square_grey_checkmark.svg" id="4_gahmj"]
+[ext_resource type="Texture2D" uid="uid://3asi1ww7th3x" path="res://assets/kenney_ui-pack/Vector/Blue/button_rectangle_gloss.svg" id="5_j25n1"]
 [ext_resource type="Texture2D" uid="uid://bis1ux13hw4vp" path="res://assets/kenney_ui-pack/Vector/Red/button_square_flat.svg" id="5_o5hdl"]
 [ext_resource type="Texture2D" uid="uid://o204qm3r2v3h" path="res://assets/kenney_ui-pack/Vector/Grey/icon_cross.svg" id="6_bsg03"]
+[ext_resource type="FontFile" uid="uid://csjph1oblw7kn" path="res://assets/kenney_ui-pack/Font/Kenney Future Narrow.ttf" id="8_d6jjg"]
 
 [node name="MinigameHUD" type="NinePatchRect" node_paths=PackedStringArray("switches")]
 anchors_preset = 15
@@ -27,6 +29,71 @@ script = ExtResource("2_ckgrs")
 switches = [NodePath("CheckButton0_0"), NodePath("CheckButton0_1"), NodePath("CheckButton0_2"), NodePath("CheckButton1_0"), NodePath("CheckButton1_1"), NodePath("CheckButton1_2"), NodePath("CheckButton2_0"), NodePath("CheckButton2_1"), NodePath("CheckButton2_2")]
 checkedIcon = ExtResource("3_plaxr")
 successIcon = ExtResource("4_gahmj")
+
+[node name="MinigameHeader" type="NinePatchRect" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = -24.0
+offset_bottom = 12.0
+grow_horizontal = 2
+texture = ExtResource("5_j25n1")
+patch_margin_left = 10
+patch_margin_top = 10
+patch_margin_right = 10
+patch_margin_bottom = 10
+
+[node name="CloseButton" type="Button" parent="MinigameHeader"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -37.0
+offset_top = -15.0
+offset_right = 35.0
+offset_bottom = 57.0
+grow_horizontal = 0
+grow_vertical = 2
+scale = Vector2(0.427195, 0.400645)
+size_flags_horizontal = 8
+icon = ExtResource("5_o5hdl")
+flat = true
+
+[node name="TextureRect" type="TextureRect" parent="MinigameHeader/CloseButton"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("6_bsg03")
+
+[node name="MinigameLabel" type="Label" parent="MinigameHeader"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -114.5
+offset_top = -10.5
+offset_right = 114.5
+offset_bottom = 10.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("8_d6jjg")
+theme_override_font_sizes/font_size = 18
+text = "Restore Power"
+horizontal_alignment = 1
 
 [node name="CheckButton0_0" type="CheckButton" parent="."]
 layout_mode = 1
@@ -171,37 +238,8 @@ theme_override_icons/checked = ExtResource("3_plaxr")
 theme_override_icons/unchecked = ExtResource("4_ca1fv")
 theme_override_icons/checked_disabled = ExtResource("4_gahmj")
 
-[node name="CloseButton" type="Button" parent="."]
-layout_mode = 1
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -44.0
-offset_top = 8.0
-offset_right = 28.0
-offset_bottom = 80.0
-grow_horizontal = 0
-scale = Vector2(0.5, 0.5)
-icon = ExtResource("5_o5hdl")
-flat = true
-
-[node name="TextureRect" type="TextureRect" parent="CloseButton"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -20.0
-offset_right = 20.0
-offset_bottom = 20.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("6_bsg03")
-
 [node name="DisappearAfterSeconds" type="Timer" parent="."]
 one_shot = true
 
-[connection signal="pressed" from="CloseButton" to="." method="_on_close_button_pressed"]
+[connection signal="pressed" from="MinigameHeader/CloseButton" to="." method="_on_close_button_pressed"]
 [connection signal="timeout" from="DisappearAfterSeconds" to="." method="_on_disappear_after_seconds_timeout"]

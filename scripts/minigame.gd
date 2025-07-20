@@ -11,7 +11,7 @@ var puzzleMatrix;
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	puzzleSolved = false;
+	puzzleSolved = false; # For Debug Purposes
 	puzzleMatrix = [
 		[false, false, false],
 		[false, false, false],
@@ -125,7 +125,3 @@ func reset_puzzle() -> void:
 		i += 1;
 	
 	refresh_buttons();
-
-
-func _on_main_hud_minigame_begun() -> void:
-	visible = true;

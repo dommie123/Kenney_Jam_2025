@@ -6,19 +6,20 @@ signal updateUI;
 
 @export var maxPower: int;
 @export var maxPwrLevel: int;
+@export var initPwrOvercharge: int;
 @export var maxCoinLevel: int;
 @export var initCoinGenRate: float;
 @export var pwrConsumptionRate: float;
 @export var maxFloors: int;
-@export var initPwrOvercharge: int;
+@export var floorTilemaps: Array[Node2D];
 
 var currentPower: float;
+var pwrOvercharge: int;
 var currentCoinGenRate: float;
 var numWorkers: int;
 var numFloors: int;
 var powerLevel: int;
 var coinLevel: int;
-var pwrOvercharge: int;
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -52,15 +53,38 @@ func upgrade_building(type: GlobalTypes.UpgradeType) -> void:
 		currentCoinGenRate = initCoinGenRate;
 		coinLevel += 1;
 	elif type == GlobalTypes.UpgradeType.FLOOR and numFloors < maxFloors:
-		var prevLevelTilemap = get_node("Lv%d_Tilemap" % numFloors);
 		numFloors += 1;
-		var currentLevelTilemap = get_node("Lv%d_Tilemap" % numFloors);
 		
-		prevLevelTilemap.visible = false;
-		currentLevelTilemap.visible = true;
+		# TODO just figure this out in Version 2.0
+		#if numFloors - 1 == 1:
+			#$Lv1_Tilemap/TileMapBackground.hide();
+			#$Lv1_Tilemap/TileMapForeground.hide();
+			#$Lv2_Tilemap/TileMapBackground.show();
+			#$Lv2_Tilemap/TileMapForeground.show();
+		#elif numFloors - 1 == 2:
+			#$Lv2_Tilemap/TileMapBackground.hide();
+			#$Lv2_Tilemap/TileMapForeground.hide();
+			#$Lv3_Tilemap/TileMapBackground.show();
+			#$Lv3_Tilemap/TileMapForeground.show();
+		#elif numFloors - 1 == 3:
+			#$Lv3_Tilemap/TileMapBackground.hide();
+			#$Lv3_Tilemap/TileMapForeground.hide();
+			#$Lv4_Tilemap/TileMapBackground.show();
+			#$Lv4_Tilemap/TileMapForeground.show();
+		#elif numFloors - 1 == 4:
+			#$Lv4_Tilemap/TileMapBackground.hide();
+			#$Lv4_Tilemap/TileMapForeground.hide();
+			#$Lv5_Tilemap/TileMapBackground.show();
+			#$Lv5_Tilemap/TileMapForeground.show();
+		
+		# Force Godot to redraw the building asset, 
+		# hoping the tilemaps will actually update this time.
+		queue_redraw();
 	else:
 		return;
 	
+	$PowerDegradeTimer.wait_time = 1 / pwrConsumptionRate;
+	$CoinGenerateTimer.wait_time = 1 / currentCoinGenRate;
 	updateUI.emit(numWorkers, calc_worker_capacity(), powerLevel, coinLevel, numFloors, maxFloors);
 
 
